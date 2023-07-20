@@ -21,14 +21,15 @@ Output: -1
 Explanation: There is no a single valid k, we return -1.
  */
 
+//[-2, -2]
 function findMaxK(nums) {
     let left = 0;
     let right = 1;
     let positiveInt = -1;
 
     while(left < nums.length - 1) {
-        if(Math.abs(nums[left]) === nums[right] && nums[left] < 0 
-        || nums[left] === Math.abs(nums[right]) && nums[right] < 0) {
+        if(nums[left] * -1 === nums[right] ||
+            nums[right] * -1 === nums[left]) {
             if(Math.abs(nums[left]) > positiveInt) {
                 positiveInt = Math.abs(nums[left]);
             }
